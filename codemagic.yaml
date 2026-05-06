@@ -1,0 +1,16 @@
+workflows:
+  android-workflow:
+    name: IPTV Build
+    environment:
+      vars:
+        PACKAGE_NAME: "com.iptv.manager"
+
+    scripts:
+      - name: Give permissions
+        script: chmod +x ./gradlew
+
+      - name: Build APK
+        script: ./gradlew assembleDebug
+
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
